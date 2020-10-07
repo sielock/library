@@ -1,1 +1,1 @@
-# library
+Simple library app project from the Odin Project. 
