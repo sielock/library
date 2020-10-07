@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"/>
+  </head>
+  <body>
+    <h1>My Library</h1>
+    <div id="container">
+      <div class="library">
+        <div id="newBookButton">
+          <button id="addBook" onclick="openForm()">Add Book</button><br>
+        </div>
+      </div>
+      <div class="newBookForm">
+        <div class="form-content">
+          <button id="close" onclick="closeForm()">x</button>
+
+            <label for="title">Book Title: </label><br>
+            <input id="title" type="text" value=""><br><br>
+
+            <label for="author">Author: </label><br>
+            <input id="author" type="text" value=""><br><br>
+
+            <label for="pages">Number of Pages: </label><br>
+            <input id="pages" type="text" value=""><br><br>
+
+            <label for="Yes">Read</label>
+            <input type="radio" name="status" id="Yes">
+            <label for="No">Not Read</label>
+            <input type="radio" name="status" id="No"><br><br>
+
+            <button id="add" onclick="getValues()">+</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
