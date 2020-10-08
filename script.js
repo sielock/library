@@ -94,3 +94,8 @@ function openForm() {
 function closeForm() {
   newBookForm.style.display = "none";
 }
+
+//creates a sample book tile
+const sampleBook = new Book('Dune', 'Frank Herbert', 412, 'Yes');
+myLibrary.push(sampleBook);
+updateDisplay();

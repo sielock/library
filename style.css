@@ -1,3 +1,29 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(rgb(100, 59, 15), rgba(109, 73, 20, 0.9)) ;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+h1 {
+  background-color: #E4B04A;
+  color: rgb(42, 44, 5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  margin: -8px 0 0 0;}
+
+
+#container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
 .newBookForm {
     display: none;
     position: fixed;
@@ -10,30 +36,50 @@
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
   }
-  
+
   .form-content {
-    background-color: #fefefe;
+    background-color: #E4B04A;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 10%; 
+    border: 1px black solid;
   }
 
   #add {
     display: block;
-    color: green;
+    color: #2a2c05;
+    background-color: #EFE0B9;
     margin: 0 auto;
     font-size: 20px;
     font-weight: bold;
+    border: 1px solid #2a2c05;
   }
 
   #close {
     display: block;
     float: right;
     margin: -15px -15px 0px 0px;  
-    color: red;
-    background-color: rgba(99, 99, 99, 0.1);
+    color: rgba(196, 21, 45, 0.822);
+    background-color: #EFE0B9;
     border: none;
+    outline: none;
+  }
+
+  #close:focus,
+  #close:hover,
+  #add:focus,
+  #add:hover {
+    background-color: rgba(42, 44, 5, 0.2);
+  }
+
+  #addBook {
+    background-color: #EFE0B9;
+    height: 65px;
+    width: 65px;
+    font-size: 50px;
+    text-align: center;
+    border: 2px solid #2A2c05;
   }
   
   .library {
@@ -51,7 +97,10 @@
     margin: 1em;
     margin-right: 2em;
     padding: 3px;
-    border: 2px green solid;
+    background-color: #B7521E;
+    border: 2px #2a2c05 solid;
+    box-shadow: 3px 3px 6px 7px rgba(41, 39, 39, 0.205);
+
   }
   
   .library div p {
@@ -59,18 +108,19 @@
     height: 14em;
     margin-bottom: -1em;
   }
-  
+
   #newBookButton {
-    background-color: teal;
     display: flex;
     align-items: center;
     justify-content: center;
     order: 1;
-  
   }
   
   .readButton,
   .deleteButton {
     height: 3em;
     width: 7em;
+    border: 2px solid #2a2c05;
+    color: #2a2c05;
+    font-size: 13px;
   }
