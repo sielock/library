@@ -6,7 +6,10 @@ const authorInput = document.getElementById('author');
 const pagesInput = document.getElementById('pages');
 const radiosInput = document.getElementsByName('status');
 
+
+//functions
 let myLibrary = [];
+
 
 function Book(title, author, numPages, hasRead) {
   this.title = title;
@@ -15,10 +18,15 @@ function Book(title, author, numPages, hasRead) {
   this.hasRead = hasRead;
 }
 
+
 function addToLibrary(title, author,pages, hasRead) {
-  myLibrary.push(new Book(title, author, pages, hasRead));
+  let newBook = new Book(title, author, pages, hasRead);
+  myLibrary.push(newBook);
+
+  updateLocalStorage();
   updateDisplay();
 }
+
 
 function updateDisplay() {
   while(library.lastChild.id !== 'newBookButton') {
@@ -29,6 +37,7 @@ function updateDisplay() {
     createBookTile(entry);
   });
 } 
+
 
 function createBookTile(book) {
   //elements for tile creation
@@ -59,20 +68,20 @@ function createBookTile(book) {
   newEntry.classList.add("tile");
 
   readButton.addEventListener('click', () => {
-    if(book.hasRead === 'Yes') {
-      book.hasRead = 'No';
-    }
-    else {
-      book.hasRead = 'Yes';
-    }
+    book.hasRead === 'Yes' ? book.hasRead = 'No' : book.hasRead = 'Yes';
+    
+    updateLocalStorage();
     updateDisplay();
   });
 
   deleteButton.addEventListener('click', () => {
     myLibrary.splice(myLibrary.indexOf(book), 1);
+
+    updateLocalStorage();
     updateDisplay();
   });
 }
+
 
 function getValues() {
   let readVal = '';
@@ -82,20 +91,63 @@ function getValues() {
       readVal = btn.id;
     }
   });
-  
+
   addToLibrary(titleInput.value, authorInput.value, pagesInput.value, readVal);
   closeForm();
 }
 
-function openForm() {
+
+function openForm() {updateLocalStorage()
   newBookForm.style.display = "block";
 }
+
 
 function closeForm() {
   newBookForm.style.display = "none";
 }
 
-//creates a sample book tile
-const sampleBook = new Book('Dune', 'Frank Herbert', 412, 'Yes');
-myLibrary.push(sampleBook);
-updateDisplay();
+
+function checkLocalStorage() {
+  let localStorageContent = JSON.parse(localStorage.getItem('library'));
+  console.log(localStorageContent)
+
+  //happens when clearing data from local storage
+  if(localStorageContent === null) {
+    return 'empty';
+  }
+
+  //check the content of the array being stored in local storage 
+  if(localStorageContent.length > 0) {
+    localStorageContent.forEach(entry => {
+      myLibrary.push(entry);
+    });
+    return 'stuff';
+  }
+}
+
+
+function updateLocalStorage() {
+  localStorage.setItem('library', JSON.stringify(myLibrary));
+}
+
+
+function clearStorage() {
+  if(confirm('Clear Local Storage and reset app?')) {
+    localStorage.clear();
+    myLibrary = [];
+    updateDisplay();
+  }
+}
+
+
+function startUpCheck() {
+  //if localStorage has been cleared, populate with new library array
+  let status = checkLocalStorage();
+  if(status === 'empty') {
+    updateLocalStorage();
+  }
+  updateDisplay();
+}
+
+
+startUpCheck();

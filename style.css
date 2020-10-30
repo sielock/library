@@ -8,14 +8,30 @@ body {
   height: 100%;
 }
 
-h1 {
+#header {
   background-color: #E4B04A;
-  color: rgb(42, 44, 5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 1em;
-  margin: -8px 0 0 0;}
+  margin: -8px 0 0 0;
+  height: 4em;
+  text-align: center;
+}
+
+h1 {
+  display: block;
+  margin: 0 auto;
+  color: rgb(42, 44, 5);
+  margin-top: 0.3em;
+} 
+
+#clearStorageBtn {
+  height: 3em;
+  width: 7em;
+  border: 2px solid #2a2c05;
+  color: #2a2c05;
+  font-size: 13px;
+  float: left;
+  margin-top: 0.7em;
+}
 
 
 #container {
