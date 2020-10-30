@@ -6,10 +6,8 @@ const authorInput = document.getElementById('author');
 const pagesInput = document.getElementById('pages');
 const radiosInput = document.getElementsByName('status');
 
-
 //functions
 let myLibrary = [];
-
 
 function Book(title, author, numPages, hasRead) {
   this.title = title;
@@ -148,6 +146,5 @@ function startUpCheck() {
   }
   updateDisplay();
 }
-
 
 startUpCheck();

@@ -1,1 +1,1 @@
-Simple library app project from the Odin Project. 
+Simple library app project from the Odin Project. Learned a lot about local storage and how to work with it, and the overall project was very educational.
